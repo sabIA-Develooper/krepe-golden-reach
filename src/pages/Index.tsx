@@ -1,12 +1,33 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import PracticeAreas from "@/components/PracticeAreas";
+import Highlights from "@/components/Highlights";
+import Solutions from "@/components/Solutions";
+import Advantages from "@/components/Advantages";
+import ContactForm from "@/components/ContactForm";
+import BrazilMap from "@/components/BrazilMap";
+import LawyerProfile from "@/components/LawyerProfile";
+import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main>
+        <Hero />
+        <About />
+        <PracticeAreas />
+        <Highlights />
+        <Solutions />
+        <Advantages />
+        <ContactForm />
+        <BrazilMap />
+        <LawyerProfile />
+      </main>
+      <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
