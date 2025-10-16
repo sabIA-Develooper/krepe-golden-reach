@@ -52,18 +52,18 @@ const BrazilMap = () => {
   }, []);
 
   return (
-    <section className="py-0 bg-[#eff1f3]">
-      <div className="container mx-auto px-4 max-w-[1000px]">
-        <div className="grid md:grid-cols-[1fr_1.8fr] lg:grid-cols-[1fr_2.2fr] xl:grid-cols-[1fr_2.6fr] gap-2 md:gap-3 lg:gap-4 items-center min-h-[500px] md:min-h-[420px] lg:min-h-[550px]">
+    <section className="py-8 sm:py-12 bg-[#eff1f3] overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 max-w-[1000px]">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.8fr] lg:grid-cols-[1fr_2.2fr] xl:grid-cols-[1fr_2.6fr] gap-6 sm:gap-2 md:gap-3 lg:gap-4 items-center min-h-[400px] sm:min-h-[500px] md:min-h-[420px] lg:min-h-[550px]">
           <div className="animate-fade-in self-center justify-self-start max-w-[800px]">
-            <h3 className="text-[40px] md:text-[44px] leading-tight font-accent font-semibold mb-8 text-[#6c4a2f]">
+            <h3 className="text-[clamp(1.75rem,6vw,2.75rem)] leading-tight font-accent font-semibold mb-6 sm:mb-8 text-[#6c4a2f]">
               Atendimento Online para Todos os Estados da Federação
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {["100% Online", "Rápido", "Sem Burocracia"].map((item, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-[#6c4a2f] flex-shrink-0" />
-                  <span className="text-[20px] font-accent text-gray-800">
+                <div key={index} className="flex items-center gap-2 sm:gap-3">
+                  <Check className="w-4 h-4 sm:w-5 sm:h-5 text-[#6c4a2f] flex-shrink-0" />
+                  <span className="text-base sm:text-lg md:text-xl font-accent text-gray-800">
                     {item}
                   </span>
                 </div>
@@ -72,13 +72,13 @@ const BrazilMap = () => {
           </div>
 
           {/* Mapa do Brasil fiel, com estados e siglas, cor dourada e interativo */}
-          <div className="animate-fade-in relative justify-self-end flex justify-end overflow-visible">
+          <div className="animate-fade-in relative justify-self-center md:justify-self-end flex justify-center md:justify-end overflow-visible">
             <brazil-component
               id="brazil-accurate-map"
               ref={mapRef as any}
-              className="transition-transform duration-300 ease-out sm:scale-[2.4] md:scale-[3.6] lg:scale-[5.0] xl:scale-[6.0] 2xl:scale-[7.2] origin-right"
+              className="transition-transform duration-300 ease-out scale-[1.8] xs:scale-[2.0] sm:scale-[2.4] md:scale-[3.6] lg:scale-[5.0] xl:scale-[6.0] 2xl:scale-[7.2] origin-center md:origin-right"
               style={{
-                width: "400%",
+                width: "100%",
                 maxWidth: "800px",
                 display: "block",
                 marginLeft: "auto",
@@ -116,7 +116,7 @@ const BrazilMap = () => {
             ></brazil-component>
 
             {selectedState && (
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-[#6c4a2f] text-white px-6 py-2.5 rounded-full shadow-lg font-accent text-base md:text-lg z-10">
+              <div className="absolute top-2 sm:top-4 left-1/2 -translate-x-1/2 bg-[#6c4a2f] text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full shadow-lg font-accent text-sm sm:text-base md:text-lg z-10">
                 {stateNames[selectedState] ?? selectedState}
               </div>
             )}

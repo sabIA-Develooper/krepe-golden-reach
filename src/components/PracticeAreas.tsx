@@ -31,7 +31,7 @@ const PracticeAreas = () => {
   ];
 
   return (
-    <section id="areas" className="py-20 bg-background relative overflow-hidden">
+    <section id="areas" className="py-12 sm:py-20 bg-background relative overflow-hidden">
       <div className="absolute top-10 right-10 opacity-10">
         <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
           <path
@@ -41,23 +41,23 @@ const PracticeAreas = () => {
         </svg>
       </div>
 
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-heading font-bold text-center mb-16 text-foreground">
+      <div className="container mx-auto px-4 sm:px-6">
+        <h2 className="text-[clamp(2rem,5vw,3rem)] font-heading font-bold text-center mb-8 sm:mb-16 text-foreground px-2">
           Áreas de Atuação
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
           {areas.map((area, index) => (
             <div
               key={index}
-              className="bg-card p-8 rounded-2xl shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-elegant)] transition-all duration-300 hover-scale animate-fade-in"
+              className="bg-card p-6 sm:p-8 rounded-2xl shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-elegant)] transition-all duration-300 hover-scale animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <area.icon className="w-16 h-16 text-accent mb-6" strokeWidth={1.5} />
-              <h3 className="text-2xl font-heading font-semibold mb-4 text-foreground">
+              <area.icon className="w-12 h-12 sm:w-16 sm:h-16 text-accent mb-4 sm:mb-6" strokeWidth={1.5} />
+              <h3 className="text-xl sm:text-2xl font-heading font-semibold mb-3 sm:mb-4 text-foreground">
                 {area.title}
               </h3>
-              <p className="text-muted-foreground font-body leading-relaxed">
+              <p className="text-sm sm:text-base text-muted-foreground font-body leading-relaxed">
                 {area.description}
               </p>
             </div>
@@ -68,7 +68,7 @@ const PracticeAreas = () => {
           <Button
             onClick={scrollToContact}
             size="lg"
-            className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-8 font-accent hover-scale"
+            className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg font-accent hover-scale min-h-[48px]"
           >
             Falar com um advogado
           </Button>

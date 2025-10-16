@@ -37,47 +37,47 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contato" className="pt-20 pb-6 bg-secondary">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="bg-primary p-8 md:p-12 rounded-2xl text-primary-foreground">
-            <h2 className="text-3xl font-heading font-bold mb-4">
+    <section id="contato" className="pt-12 sm:pt-20 pb-6 bg-secondary">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+          <div className="bg-primary p-6 sm:p-8 md:p-12 rounded-2xl text-primary-foreground">
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold mb-3 sm:mb-4">
               Atendimento ao Cliente
             </h2>
-            <p className="font-body mb-8">
+            <p className="font-body mb-6 sm:mb-8 text-sm sm:text-base">
               Preencha o formulário e receba nosso contato personalizado
             </p>
 
-            <div className="space-y-6 mb-12">
+            <div className="space-y-4 sm:space-y-6 mb-8 sm:mb-12">
               <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-accent" />
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-accent flex-shrink-0" />
                 <a
                   href="mailto:contato@krepeadvocacia.com.br"
-                  className="hover:text-accent transition-colors font-body"
+                  className="hover:text-accent transition-colors font-body text-sm sm:text-base break-all"
                 >
                   contato@krepeadvocacia.com.br
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-accent" />
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-accent flex-shrink-0" />
                 <a
                   href="https://wa.me/5535991658802"
-                  className="hover:text-accent transition-colors font-body"
+                  className="hover:text-accent transition-colors font-body text-sm sm:text-base"
                 >
                   +55 35 9916-5802
                 </a>
               </div>
             </div>
 
-            <div className="mb-12">
-              <p className="font-body mb-4">
+            <div className="mb-8 sm:mb-12">
+              <p className="font-body mb-4 text-sm sm:text-base leading-relaxed">
                 Nosso principal propósito é proporcionar qualidade e facilidade com confiança e
                 consideração. Com isso, adotamos uma abordagem totalmente digital, possibilitando
                 conforto e acessibilidade para todos os clientes.
               </p>
             </div>
 
-            <div className="mb-8">
+            <div className="mb-6 sm:mb-8">
               <svg viewBox="0 0 200 150" className="w-48 h-auto mx-auto opacity-50">
                 <path
                   d="M100 20 L180 70 L170 130 L100 140 L30 130 L20 70 Z"
@@ -116,9 +116,9 @@ const ContactForm = () => {
             </div>
           </div>
 
-          <div className="bg-card p-8 md:p-12 rounded-2xl shadow-[var(--shadow-card)]">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
+          <div className="bg-card p-6 sm:p-8 md:p-12 rounded-2xl shadow-[var(--shadow-card)]">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <Input
                     placeholder="Nome"
@@ -127,19 +127,20 @@ const ContactForm = () => {
                       setFormData({ ...formData, name: e.target.value })
                     }
                     required
-                    className="border-b-2 border-t-0 border-x-0 border-muted-foreground/30 rounded-none focus:border-accent"
+                    className="border-b-2 border-t-0 border-x-0 border-muted-foreground/30 rounded-none focus:border-accent text-base"
                   />
                 </div>
                 <div>
                   <Input
                     placeholder="Telefone"
                     type="tel"
+                    inputMode="tel"
                     value={formData.phone}
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
                     }
                     required
-                    className="border-b-2 border-t-0 border-x-0 border-muted-foreground/30 rounded-none focus:border-accent"
+                    className="border-b-2 border-t-0 border-x-0 border-muted-foreground/30 rounded-none focus:border-accent text-base"
                   />
                 </div>
               </div>
@@ -148,17 +149,18 @@ const ContactForm = () => {
                 <Input
                   placeholder="E-mail"
                   type="email"
+                  inputMode="email"
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
                   required
-                  className="border-b-2 border-t-0 border-x-0 border-muted-foreground/30 rounded-none focus:border-accent"
+                  className="border-b-2 border-t-0 border-x-0 border-muted-foreground/30 rounded-none focus:border-accent text-base"
                 />
               </div>
 
               <div>
-                <Label className="text-accent font-accent mb-4 block">
+                <Label className="text-accent font-accent mb-3 sm:mb-4 block text-sm sm:text-base">
                   Qual Área Você precisa de Ajuda?
                 </Label>
                 <RadioGroup
@@ -166,29 +168,29 @@ const ContactForm = () => {
                   onValueChange={(value) =>
                     setFormData({ ...formData, area: value })
                   }
-                  className="grid grid-cols-1 md:grid-cols-2 gap-3"
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-3"
                 >
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 min-h-[44px]">
                     <RadioGroupItem value="juros" id="juros" />
-                    <Label htmlFor="juros" className="font-body cursor-pointer">
+                    <Label htmlFor="juros" className="font-body cursor-pointer text-sm sm:text-base">
                       Juros abusivos
                     </Label>
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 min-h-[44px]">
                     <RadioGroupItem value="defesas" id="defesas" />
-                    <Label htmlFor="defesas" className="font-body cursor-pointer">
+                    <Label htmlFor="defesas" className="font-body cursor-pointer text-sm sm:text-base">
                       Defesas do endividado
                     </Label>
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 min-h-[44px]">
                     <RadioGroupItem value="fraudes" id="fraudes" />
-                    <Label htmlFor="fraudes" className="font-body cursor-pointer">
+                    <Label htmlFor="fraudes" className="font-body cursor-pointer text-sm sm:text-base">
                       Fraudes e golpes bancários
                     </Label>
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 min-h-[44px]">
                     <RadioGroupItem value="outras" id="outras" />
-                    <Label htmlFor="outras" className="font-body cursor-pointer">
+                    <Label htmlFor="outras" className="font-body cursor-pointer text-sm sm:text-base">
                       Outras Áreas
                     </Label>
                   </div>
@@ -204,15 +206,15 @@ const ContactForm = () => {
                   }
                   required
                   rows={4}
-                  className="border-b-2 border-t-0 border-x-0 border-muted-foreground/30 rounded-none focus:border-accent resize-none"
+                  className="border-b-2 border-t-0 border-x-0 border-muted-foreground/30 rounded-none focus:border-accent resize-none text-base"
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground rounded-full py-6 font-accent text-lg hover-scale"
+                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground rounded-full py-5 sm:py-6 font-accent text-base sm:text-lg hover-scale min-h-[48px] sm:min-h-[52px]"
               >
-                <Send className="w-5 h-5 mr-2" />
+                <Send className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Enviar Mensagem
               </Button>
             </form>
